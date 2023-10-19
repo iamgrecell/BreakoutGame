@@ -18,10 +18,11 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 	private boolean gameRunning = true;
 	private int livesLeft = 3;
 	private String screenMessage = "";
+	private String screenMessage2 = ""; //a new line of message on the screen asking the player to press enter to restart
 	private Ball ball;
 	private Paddle paddle;
 	private Brick bricks[];
-	private Timer timer;
+	private Timer timer; //timer for the restart and game updates
 	
 	
 	public BreakoutPanel(Breakout game) {
@@ -29,7 +30,8 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 		addKeyListener(this);
 		setFocusable(true);
 		
-		Timer timer = new Timer(5, this);
+		//initialise timer for game updates
+		timer = new Timer(5, this);
 		timer.start();
 		
 		// TODO: Create a new ball object and assign it to the appropriate variable
@@ -78,15 +80,17 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 	
 	private void gameOver() {
 		// TODO: Set screen message
-		screenMessage = ("Game Over");
+		screenMessage = "Game Over!";
+		screenMessage2 ="Press Enter to restart";
 		stopGame();
 	}
 	
 	private void gameWon() {
 		// TODO: Set screen message
-		screenMessage =("Game Won!");
-		//stopGame();
-		restartGame();
+		screenMessage = "Game Won!";
+		screenMessage2 ="Press Enter to restart";
+		stopGame();
+		
 	}
 	
 	private void stopGame() {
@@ -179,39 +183,42 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
         	int messageWidth = g.getFontMetrics().stringWidth(screenMessage);
         	g.drawString(screenMessage, (Settings.WINDOW_WIDTH / 2) - (messageWidth / 2), Settings.MESSAGE_POSITION);
         }
+        //added another line of screenmessage instructing the user to press enter to restart the game
+        if(screenMessage2 != null) {
+        	g.setFont(new Font("Arial", Font.BOLD, 18));
+        	int messageWidth = g.getFontMetrics().stringWidth(screenMessage2);
+        	g.drawString(screenMessage2, (Settings.WINDOW_WIDTH / 2) - (messageWidth / 2), Settings.MESSAGE_POSITION2);
+        }
     }
 	
 
-	  public void restartGame() {
-	        if (timer != null) { // Check if the timer is not null
-	            // Stop the game timer to avoid updates during the restart
-	            timer.stop();
+	public void restartGame() {
+	    if (timer != null) {
+	        // Stop the game timer to avoid updates during the restart
+	        timer.stop();
 
-	            // Reset game objects and other game state variables
-	            ball = new Ball();
-	            paddle = new Paddle();
-	            createBricks();
+	        // Reset game objects and other game state variables
+	        ball = new Ball();
+	        paddle = new Paddle();
+	        createBricks();
 
-	            // Reset game scores, if applicable
-	            livesLeft = 3;
+	        // Reset game scores on restart
+	        livesLeft = 3;
 
-	            // Set any other necessary game state variables to their initial values
+	        // Clear the screen message
+	        screenMessage = "";
+	        screenMessage2 = "";
 
+	        // Repaint the game panel to display the initial state
+	        repaint();
 
-	            // Clear the screen message
-	            screenMessage = "";
-
-	            // Repaint the game panel to display the initial state
-	            repaint();
-
-	            // Start or restart the game timer to resume the game
-	            timer.start();
-	        }
+	        // Start or restart the game timer to resume the game
+	        timer.start();
+	        // Set gameRunning to true to resume the game
+	        gameRunning = true;
 	    }
+	}
 
-	    // ... Other methods ...
-
-	
 
 
 	@Override
@@ -225,7 +232,10 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 	        paddle.setXVelocity(2); // Set the paddle's xVelocity to move right
 	    }
 	    if (key == KeyEvent.VK_ENTER) {
+	    	//restart the game and the timer once the enter key is pressed
 		        restartGame();
+		        timer.start();
+	  
 	    }
 	}
 
