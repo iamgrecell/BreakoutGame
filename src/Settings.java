@@ -17,6 +17,7 @@ public class Settings {
 	public static final int BALL_WIDTH = 10;
 	public static final int BALL_HEIGHT = 10;
 	public static final int MESSAGE_POSITION = 270;
+	public static final int MESSAGE_POSITION2 = 300;
 	public static final int LIVES_POSITION_X = 5;
 	public static final int LIVES_POSITION_Y = 15;
 }
