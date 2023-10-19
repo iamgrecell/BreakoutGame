@@ -30,11 +30,6 @@ public class Paddle extends Sprite {
 			setX(0);
 		    xVelocity = -1;
 		}
-//		if (x + Settings.PADDLE_WIDTH > Settings.WINDOW_WIDTH) {
-//		    setX(0);
-//		    xVelocity = 1;
-		
-
 
 		if (x + width > Settings.WINDOW_WIDTH) {
 		     // If the paddle goes too far to the right, set its position to the right edge of the screen

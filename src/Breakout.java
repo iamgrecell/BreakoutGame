@@ -21,7 +21,7 @@ public class Breakout extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         panel = new BreakoutPanel(this);
         add(panel);
-        pack();
+        pack(); // added to adjust the Jframe accordingly
 		// TODO: Set visible to true
         setVisible(true);
         

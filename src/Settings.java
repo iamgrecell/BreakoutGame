@@ -1,7 +1,7 @@
 
 public class Settings {
 	public static final String WINDOW_NAME = "Breakout";
-	public static final int WINDOW_WIDTH = 416;
+	public static final int WINDOW_WIDTH = 416; //changed from 400-416 to address the error on ball and paddle going outside the panel
 	public static final int WINDOW_HEIGHT = 500;
 	public static final int TOTAL_BRICKS = 20;
 	public static final int BRICK_VERT_PADDING = 50;
@@ -17,7 +17,7 @@ public class Settings {
 	public static final int BALL_WIDTH = 10;
 	public static final int BALL_HEIGHT = 10;
 	public static final int MESSAGE_POSITION = 270;
-	public static final int MESSAGE_POSITION2 = 300;
+	public static final int MESSAGE_POSITION2 = 300; //added for the screenmessage to press enter key to restart the game
 	public static final int LIVES_POSITION_X = 5;
 	public static final int LIVES_POSITION_Y = 15;
 }

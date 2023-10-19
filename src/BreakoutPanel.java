@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-import java.awt.Dimension;
+import java.awt.Dimension; //added for the preferred screensize
 
 public class BreakoutPanel extends JPanel implements ActionListener, KeyListener {
 	
@@ -81,14 +81,17 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 	private void gameOver() {
 		// TODO: Set screen message
 		screenMessage = "Game Over!";
-		screenMessage2 ="Press Enter to restart";
+		screenMessage2 ="Press Enter to restart"; //added additional screenmessage to let the user know 
+													//that they can press enter to restart game
 		stopGame();
 	}
 	
 	private void gameWon() {
 		// TODO: Set screen message
 		screenMessage = "Game Won!";
-		screenMessage2 ="Press Enter to restart";
+		screenMessage2 ="Press Enter to restart"; //added additional screenmessage to let the user know 
+													//that they can press enter to restart game
+		
 		stopGame();
 		
 	}
@@ -191,7 +194,7 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
         }
     }
 	
-
+	//added to give the user an option to restart the game by pressing enter key without the need to exit the window and relaunch
 	public void restartGame() {
 	    if (timer != null) {
 	        // Stop the game timer to avoid updates during the restart
