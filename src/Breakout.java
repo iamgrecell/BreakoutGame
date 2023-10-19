@@ -11,7 +11,6 @@ public class Breakout extends JFrame{
 	
 	public Breakout() {
 		// TODO: Set the size of the screen (use Settings.WINDOW_WIDTH/HEIGHT)
-		//this.setPreferredSize(new Dimension(Settings.WINDOW_WIDTH, Settings.WINDOW_HEIGHT));
 		setSize(Settings.WINDOW_WIDTH, Settings.WINDOW_HEIGHT);
 		// TODO: Set the title
 		setTitle(Settings.WINDOW_NAME);

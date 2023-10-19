@@ -2,7 +2,7 @@
 public class Settings {
 	public static final String WINDOW_NAME = "Breakout";
 	public static final int WINDOW_WIDTH = 416;
-	public static final int WINDOW_HEIGHT = 539;
+	public static final int WINDOW_HEIGHT = 500;
 	public static final int TOTAL_BRICKS = 20;
 	public static final int BRICK_VERT_PADDING = 50;
 	public static final int BRICK_HEIGHT = 30;
